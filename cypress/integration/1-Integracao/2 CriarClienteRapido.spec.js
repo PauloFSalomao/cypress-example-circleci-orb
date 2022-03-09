@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -73,9 +73,10 @@ it('listagem - Criar, e Excluir - Cliente', () => {
   
      cy.get(loc.integracao.adicionar).click()
      cy.get('.breadcrumb > :nth-child(4) > .ng-binding').should('contain', 'Cadastrar')
-     cy.get('#radio_6 > .md-container > .md-off').click({ force: true })
+     cy.get('#radio_7 > .md-container > .md-off').click({ force: true })
      cy.wait(500)
      cy.get(':nth-child(1) > .col-md-16 > .form-group > .control-label > .ng-binding').should("contain", "Razão social")
+     ///cy.get(':nth-child(1) > .col-md-16 > .form-group').should("contain", "Nome")
      cy.wait(500)
     
      cy.get('#razaoSocial').type("FARMACIA INDIANA")

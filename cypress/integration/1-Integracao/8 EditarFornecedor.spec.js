@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -156,33 +156,33 @@ it('listagem - Ler - Fornecedor', () => {
       cy.get(loc.menu.fixar).click({ force: true });
       cy.wait(2000);
     } 
-  cy.contains("Farmacia Drogazil",{ matchCase: false }).click()
+  cy.contains("Farmacia Drogazil",{ matchCase: false }).dblclick()
+  cy.wait(2000)
  cy.get(loc.menu.caminho2).should('contain', 'Visualizar')
- cy.get(loc.integracao.Corpo).should('contain','Farmacia Drogazil',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','1000',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','DROGARIA INDIANA',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','FARMACIA DROGAZIL',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','500',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','DROGARIA DROGAZIL',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','www.drogabrasil.com',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','Fabricante ',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','25.102.146/0010-60',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','05/04/1954',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','123456',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','DROGARIAS',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','Contribuinte Isento de Inscrição no Cadastro',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','(73) 3263-1122',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','indianas@gmail.com',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','DROGARIAS E LABOATORIOS',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','Compras somente a vista',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','40.391-412',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','Avenida Indiana',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','321',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','São Caetano',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','SALVADOR - BA',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','Banco Bradesco S.A.',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','1239',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','80047',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','Ativo',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','61.585.865/0001-51',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','05/04/1957',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','123451',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','GERAL',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','Contribuinte ICMS',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','(73) 3263-1111',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','drogazil@gmail.com',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','CAPITAL PROPRIO',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','Somente no boleto',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','45.985-180',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','Rua Zilda Arns Neumann',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','598',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','Centro',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','TEIXEIRA DE FREITAS - BA',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','Banco do Brasil S.A.',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','5239',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','80204',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','Conta corrente',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','123456',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','123456',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','111',{ matchCase: false })
  cy.get('.col-md-24 > .pull-right > .md-button').click()
  
 

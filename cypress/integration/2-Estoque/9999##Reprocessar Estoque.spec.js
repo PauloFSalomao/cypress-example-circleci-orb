@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -29,7 +29,7 @@ context('GRUD - Grupo Clientes' , () => {
     // cy.get(loc.menu.fixar).click()//locators
   
   })
-     it('Reprocessa Estoque - Reservado e Real - todos produtos', () => {
+     it.only('Reprocessa Estoque - Reservado e Real - todos produtos', () => {
       if (cy.get('#navigation-menu').should("be.visible")) {
         cy.get('#main').click(300, 30)
         cy.get(loc.menu.navigator).click({ force: true }); //locators
@@ -65,10 +65,10 @@ context('GRUD - Grupo Clientes' , () => {
         } 
     
         
-        cy.get(':nth-child(1) > .col-md-16 > .form-group > .ui-select-container > .ui-select-match > .form-control').type("reservado")
+        cy.get(':nth-child(1) > .col-md-16 > .form-group > .ui-select-container > .ui-select-match > .form-control').type("FAQUEIRO INOX")
         cy.get(loc.menu.selecionaItem).click({timeout: 10000})
         cy.wait(1000)
-        cy.get(':nth-child(2) > .col-md-16 > .form-group > .ui-select-container > .ui-select-match > .form-control').type("todos")
+        cy.get(':nth-child(2) > .col-md-16 > .form-group > .ui-select-container > .ui-select-match > .form-control').type("A TODOS OS PRODUTOS")
         cy.get(loc.menu.selecionaItem).click({timeout: 10000})
         cy.wait(1000)
 

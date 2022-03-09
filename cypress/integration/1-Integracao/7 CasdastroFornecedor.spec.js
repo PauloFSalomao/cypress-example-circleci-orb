@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -96,7 +96,7 @@ context('GRUD - Fornecedores', () => {
      cy.wait(200)
      cy.get(':nth-child(5) > .col-md-24 > .panel > .panel-heading').click()
      cy.wait(200)
-     cy.get('#radio_9 > .md-container > .md-off').click()
+     cy.get('#radio_10 > .md-container > .md-off').click()
   
      cy.wait(200)
      cy.get('#finInstituicaoFinanceira > .ui-select-match > .form-control').type("BANCO BRADESCO S.A")

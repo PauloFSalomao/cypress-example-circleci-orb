@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -66,7 +66,7 @@ it('listagem - Criar, abrir, Ler e voltar - Grupo empresarial', () => {
  //adicionar 
  cy.get(loc.integracao.adicionar).click()
  cy.get('.breadcrumb > :nth-child(4) > .ng-binding').should('contain', 'Cadastrar')
- cy.get('#descricao').clear().type("Athos Teste")
+ cy.get('#descricao').clear().type("SALOMAO Teste")
  
 
  cy.get('#btn-salvar > span.ng-scope').click()
@@ -74,8 +74,8 @@ it('listagem - Criar, abrir, Ler e voltar - Grupo empresarial', () => {
  cy.get(loc.menu.fechaaviso).click({timeout: 10000})
  cy.get(loc.menu.caminho).should('contain', 'Grupo empresarial')
  //abrir e ler
- cy.contains("Athos Teste",{ matchCase: false }).dblclick()
- cy.get('[label="Identificação"] > .panel-body').should('contain','ATHOS',{ matchCase: false })
+ cy.contains("SALOMAO Teste",{ matchCase: false }).dblclick()
+ cy.get('[label="Identificação"] > .panel-body').should('contain','SALOMAO',{ matchCase: false })
  
  //voltar
  cy.get('.pull-right > .md-button > span.ng-scope').click()
@@ -119,7 +119,7 @@ it('listagem - Criar, abrir, Ler e voltar - Grupo empresarial', () => {
   
 
  //editando...
- cy.contains("Athos Teste",{ matchCase: false }).click()
+ cy.contains("SALOMAO Teste",{ matchCase: false }).click()
  cy.get('#btn-editar > span.ng-scope').click({timeout: 10000})
 
  cy.get('#descricao').clear().type('TESTE EDITADO')

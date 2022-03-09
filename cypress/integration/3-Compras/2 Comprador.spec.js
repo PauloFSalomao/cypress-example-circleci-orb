@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -9,7 +9,7 @@ context("GRUD -  comprador", () => {
     cy.visit(loc.ambiente.demo);
   });
 
-  it("Login", () => {
+  it.skip("Login", () => {
     cy.get(loc.login.user).type(`${Cypress.env("usuario")}`); //variavel e locators
     cy.get(loc.login.password)
       .clear()
@@ -71,13 +71,13 @@ context("GRUD -  comprador", () => {
     cy.wait(1500);
 
     // descrição
-    cy.get("#nome").type("ATHOS DE OLIVEIRA");
+    cy.get("#nome").type("PAULO SALOMAO");
     cy.wait(500);
     cy.get('#cmpGrupoComprador > .ui-select-match > .form-control').type("PADRAO")
     cy.wait(500);
     cy.get('.ui-select-choices-row-inner > .text-truncate').click()
     cy.wait(500);
-    cy.get('#intColaborador > .ui-select-match > .form-control').type("ATHOS")
+    cy.get('#intColaborador > .ui-select-match > .form-control').type("SALOMÃO")
     cy.wait(500);
     cy.get('.ui-select-choices-row-inner > .text-truncate').click()
     cy.wait(500);
@@ -126,7 +126,7 @@ context("GRUD -  comprador", () => {
 
     //editando...
     
-    cy.contains("PADRAO").dblclick();
+    cy.contains("PAULO SALOMAO").dblclick();
     cy.wait(200)
     cy.get('[ng-click="ctrl.editarCadastro()"]').click({ force: true });
     cy.wait(500);

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -43,7 +43,7 @@ it('listagem - Criar -  Cliente', () => {
  cy.get('#radio_5 > .md-container > .md-off').click()
  cy.get(':nth-child(1) > .col-md-16 > .form-group > .control-label > .ng-binding').should("contain", "Razão social")
 //verificar clica em fisica e verifica nome
- cy.get('#radio_4 > .md-container > .md-off').click()
+ cy.get('#radio_6 > .md-container > .md-off').click()
  cy.get(':nth-child(1) > .col-md-16 > .form-group > .control-label > .ng-binding').should("contain", "Nome")
  //razao social
  cy.get('#razaoSocial').clear().type('ATHOS TESTE')

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -6,6 +6,7 @@ import loc from '../../support/locators'
 
 context("GRUD -  ordemCompras", () => {
   beforeEach(() => {
+    cy.viewport(1920,1080)
     cy.visit(loc.ambiente.demo);
   });
 
@@ -167,8 +168,8 @@ context("GRUD -  ordemCompras", () => {
     cy.get('#estArmazem > .ui-select-match > .form-control').type("MOSTRUARIO");
     cy.wait(500);
     cy.contains("MOSTRUARIO").click();
-    cy.get('#cmpComprador > .ui-select-match > .form-control').type("ATHOS")
-    cy.contains("ATHOS").click();
+    cy.get('#cmpComprador > .ui-select-match > .form-control').type("PAULO")
+    cy.contains("PAULO").click();
     cy.wait(500);
     cy.get('#documentoDataEmissao').type("22122021")
     cy.get('#informacaoComplementar').type("informacaoComplementar")
@@ -207,9 +208,9 @@ context("GRUD -  ordemCompras", () => {
     cy.get(loc.menu.aviso).should("contain", "sucesso");
     cy.wait(500);
     cy.get(loc.menu.fechaaviso).click({ timeout: 10000 });
-    cy.contains("ATHOS").dblclick();
+    cy.contains("PAULO").dblclick();
     cy.wait(200)
-    cy.get(loc.compras.Corpo).should('contain','ATHOS')
+    cy.get(loc.compras.Corpo).should('contain','PAULO')
     
     cy.get(loc.compras.Corpo).should('contain','AGUARDANDO')
     cy.get(loc.compras.Corpo).should('contain','CERVEJA')
@@ -260,10 +261,10 @@ context("GRUD -  ordemCompras", () => {
       } 
 
 
-    cy.contains("ATHOS").dblclick();
+    cy.contains("PAULO").dblclick();
 
     // descrição
-  cy.get(loc.compras.Corpo).should('contain','ATHOS')
+  cy.get(loc.compras.Corpo).should('contain','PAULO')
     cy.wait(500);
     cy.get('[ng-click="ctrl.excluirCadastro()"] > span.ng-scope').click({ force: true });
     //salvar

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -138,7 +138,7 @@ context('GRUD -  Produto' , () => {
 
         //Classificação Tributaria
         cy.get(':nth-child(6) > :nth-child(1) > .panel > .panel-heading > .panel-title').click({force:true})
-        cy.get('#fisGrupoTributacao > .ui-select-match > .form-control').type("TRIBUTADO NORMAL")
+        cy.get('#fisGrupoTributacao > .ui-select-match > .form-control').type("COM REDUÇÃO DE BASE DE CÁLCULO")
         cy.get('.ui-select-choices-row-inner').click()
 
 
@@ -206,7 +206,7 @@ context('GRUD -  Produto' , () => {
  cy.get(loc.estoque.Corpo).should('contain','35,00%')
  cy.get(loc.estoque.Corpo).should('contain','INVERSA')
  cy.get(loc.estoque.Corpo).should('contain','MOSTRUARIO')
- cy.get(loc.estoque.Corpo).should('contain','TRIBUTADO NORMAL')
+ cy.get(loc.estoque.Corpo).should('contain','COM REDUÇÃO DE BASE DE CÁLCULO')
  cy.get('.col-md-24 > .pull-right > .md-button > span.ng-scope').click({force:true})
  cy.get(loc.menu.caminho).should('contain', 'Produto')
 

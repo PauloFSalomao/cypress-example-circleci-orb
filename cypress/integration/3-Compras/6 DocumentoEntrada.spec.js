@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -140,7 +140,7 @@ context("GRUD -  Documento de Entrada", () => {
 
     cy.get(loc.menu.aviso).should("contain", "sucesso");
     cy.wait(500);
-    cy.get(loc.menu.fechaaviso).click({ timeout: 10000 });
+    //cy.get(loc.menu.fechaaviso).click({ timeout: 10000 });
         //LEr dados salvos
     cy.contains("BOSCH LTDA").dblclick();
 
@@ -199,7 +199,7 @@ context("GRUD -  Documento de Entrada", () => {
     cy.get('[ng-click="ctrl.editarCadastro()"]').click({ force: true });
     cy.wait(500);
     // descrição
-    cy.contains('Adicionar').click({ timeout: 10000 });
+    //cy.contains('Adicionar').click({ timeout: 10000 });
     cy.get(".breadcrumb > :nth-child(4) > .ng-binding").should("contain", "Cadastrar");
     cy.wait(1000);
 

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -75,10 +75,10 @@ it('listagem - Criar -  Cliente', () => {
 //  cy.get('#radio_4 > .md-container > .md-off').click({timeout: 10000})
 //  cy.get(':nth-child(1) > .col-md-16 > .form-group > .control-label > .ng-binding').should("contain", "Nome")
  //razao social
- cy.get('#razaoSocial').clear().type('ATHOS TESTE')
+ cy.get('#razaoSocial').clear().type('SALOMAO TESTE')
  cy.get('#fantasia').clear().type('TESTE-ERP')
- cy.get('#site').clear().type('www.AthosTeste.com.br')
- cy.get('#email').clear().type('Athos@adsoft.com')      
+ cy.get('#site').clear().type('www.SALOMAOTeste.com.br')
+ cy.get('#email').clear().type('SALOMAO@adsoft.com')      
  
 
  //telefone
@@ -110,9 +110,9 @@ it('listagem - Criar -  Cliente', () => {
  //cpf e dt nascimento
  cy.wait(500)
  cy.get('#pfNascimento').type('20071987')
- cy.get('#pfCpf').type(`${meuCpf}`)
+ cy.get('#pfCpf').type("23505986593")
  //cy.get('[label="Pessoa física"]').click(950, 170) //feminino
-//  cy.get('#radio_7 > .md-container > .md-off').click({timeout: 10000})//feminino
+ cy.get('#radio_8 > .md-container > .md-off').click({timeout: 10000})//feminino
  cy.get('#pfPai').clear().type('JOAO')
  cy.get('#pfMae').clear().type('MARIA')
  cy.get('#pfIdentidade').type('149828408')
@@ -143,7 +143,7 @@ cy.get('#pfConjugeRenda').clear().type('700000')
  cy.get('.ui-select-choices-row-inner').click()
  cy.wait(500)
  cy.get('#diasInadimplenciaCarencia').clear().type('30')
- cy.get('#fatVendedor > .ui-select-match > .form-control').type('LETICIA')
+ cy.get('#Vendedor > .ui-select-match > .form-control').type('LETICIA')
  cy.get(' .ui-select-choices-row-inner > .text-truncate').click()
  cy.get('#creditoLimite').clear().type('200000')
  cy.wait(500)
@@ -201,7 +201,7 @@ cy.get('[datasource="ctrl.referencia"] > .panel > .panel-body').should("contain"
 cy.wait(500)
  //salvar
  cy.get(loc.menu.salvar).click({timeout: 10000})
- cy.get('.toast').should("contain", "sucesso")
+ cy.get('.toast').should("contain", "SUCESSO")
        
 })
 it('abrir, Visualziar e Ler - Cliente', () => {
@@ -240,18 +240,18 @@ it('abrir, Visualziar e Ler - Cliente', () => {
       cy.wait(2000);
     } 
   //abrir e ler
- cy.contains("ATHOS TESTE",{ matchCase: false }).dblclick()
+ cy.contains("SALOMAO TESTE",{ matchCase: false }).dblclick()
  cy.wait(1000)
  cy.get(loc.menu.caminho2).should('contain', 'Visualizar')
- cy.get(loc.integracao.Corpo).should('contain','ATHOS TESTE',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','SALOMAO TESTE',{ matchCase: false })
  //cy.get(loc.integracao.Corpo).should('contain','574.513.148-98',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','Ativo',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','149828408',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','20/jul/1987',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','PADRAO',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','Física',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','WWW.ATHOSTESTE.COM.BR',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','ATHOS@ADSOFT.COM',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','WWW.SALOMAOTESTE.COM.BR',{ matchCase: false })
+ cy.get(loc.integracao.Corpo).should('contain','SALOMAO@ADSOFT.COM',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','(73) 99903-5376',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','(73) 99903-5376',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','C - CONSUMIDOR FINAL',{ matchCase: false })
@@ -309,7 +309,7 @@ cy.wait(1000)
  //REFERÊNCIAS
  cy.get(loc.integracao.Corpo).should('contain','PROVEDORX',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','(77) 99998-8888',{ matchCase: false })
- cy.get(loc.integracao.Corpo).should('contain','01/01/2014',{ matchCase: false })
+ //cy.get(loc.integracao.Corpo).should('contain','01/01/2014',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','50.000,00',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','15',{ matchCase: false })
  cy.get(loc.integracao.Corpo).should('contain','Bom',{ matchCase: false })

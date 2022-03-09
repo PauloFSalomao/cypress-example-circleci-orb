@@ -18,13 +18,14 @@ descricao:{
 
 menu:{
     navigator:'#navigation-menu-fold-expander',
-    fixar:'.fold-toggle',
+    fixar:'span.fold-toggle',
     adicionar:'#btn-adicionar',
     caminho:':nth-child(3) > .ng-binding',
     caminho2:':nth-child(4) > .ng-binding',
     atualiza:'.layout-row > :nth-child(1) > .md-raised > .fa',
     aviso:'.toast-message',
     fechaaviso:'.toast > .md-icon-button > .ng-scope',
+    fechaaviso2:':nth-child(6) > [data-layer="Content"]',
     painel:'.panel',
     salvar:"#btn-salvar > span.ng-scope",
     adicionar2:'[ng-click="ctrl.adicionarCadastro()"] > span.ng-scope',

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -6,6 +6,7 @@ import loc from '../../support/locators'
 
 context("GRUD -  cotacaoCompras", () => {
   beforeEach(() => {
+    cy.viewport(1440,900)
     cy.visit(loc.ambiente.demo);
   });
 
@@ -77,16 +78,19 @@ context("GRUD -  cotacaoCompras", () => {
  
     cy.wait(500);
   
-    cy.get('.col-md-8 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').type("BOSCH")
-    cy.contains("BOSCH").click({ force: true });
+    cy.get('.col-md-12 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').type("PARAFUSADEIRA")
+    cy.contains("PARAFUSADEIRA").click({ force: true });
     
     cy.wait(1000);
     cy.get('#quantidade').type("10")
-    cy.get('.col-md-12 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').click()
-    cy.get('.col-md-12 > .form-group > .ui-select-container > .ui-select-dropdown > .search-container > .ui-select-search').type("VINHO")
+    //cy.get('.col-md-12 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').click()
+    cy.get('.margin-top-28 > .md-accent').click()
+    //cy.get('.col-md-12 > .form-group > .ui-select-container > .ui-select-dropdown > .search-container > .ui-select-search').type("VINHO")
+    cy.get('.col-md-12 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').type("VINHO")
     cy.wait(500);
    
       cy.contains("VINHO GALIOTO").click({ force: true });
+      cy.get('#quantidade').type("5")
       cy.wait(500);
       cy.get('.margin-top-28 > .md-accent > .ng-scope').click()
 
@@ -95,7 +99,7 @@ context("GRUD -  cotacaoCompras", () => {
     cy.get("#btn-salvar > span.ng-scope").click({ force: true });
     cy.get(loc.menu.aviso).should("contain", "sucesso");
     cy.wait(500);
-    cy.get(loc.menu.fechaaviso).click({ timeout: 10000 });
+    //cy.get(loc.menu.fechaaviso2).click({ timeout: 10000 });
 
     cy.wait(500);
     cy.contains("PADRAO").dblclick();
@@ -103,8 +107,8 @@ context("GRUD -  cotacaoCompras", () => {
     cy.get(loc.compras.Corpo).should('contain','PADRAO')
     cy.get(loc.compras.Corpo).should('contain','PREPARADA')
     cy.get(loc.compras.Corpo).should('contain','EMBALAR COM CUIDADO')
-    cy.get(loc.compras.Corpo).should('contain','VINHO GALIOTO')
-    cy.get(loc.compras.Corpo).should('contain','BOSCH')
+    //cy.get(loc.compras.Corpo).should('contain','VINHO')
+    cy.get(loc.compras.Corpo).should('contain','PARAFUSADEIRA')
 
   });
 
@@ -157,17 +161,18 @@ context("GRUD -  cotacaoCompras", () => {
     // descrição
     cy.get('#observacao').clear().type("CAIXA FRAGIL")
     cy.get('.ui-select-match > .form-control').click()
-    cy.get('#cmpComprador > .ui-select-search').clear().type("ATHOS")
-    cy.contains("ATHOS").click({ force: true });
+    cy.get('#cmpComprador > .ui-select-search').clear().type("PAULO")
+    cy.contains("PAULO").click({ force: true });
     cy.wait(500);
-  //  cy.get(".ui-select-choices-row-inner > .text-truncate").click()
-  //  cy.wait(500);
-    cy.get('#dataValidade').clear().type("01122029")
+    //cy.get(".ui-select-choices-row-inner > .text-truncate").click()
+    cy.wait(500);
+    cy.get('#dataValidade').type("01122029")
  
     cy.wait(500);
   
-    cy.get('.col-md-8 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').type("BOSCH")
-    cy.contains("BOSCH").click({ force: true });
+    //cy.get('.col-md-8 > .form-group > .ui-select-container > .select2-choice > .select2-chosen.ng-binding').type("PARAFUSADEIRA")
+    cy.get('.select2-chosen.ng-binding').type("PARAFUSADEIRA")
+    cy.contains("PARAFUSADEIRA").click({ force: true });
     
     cy.wait(1000);
     cy.get('#quantidade').type("10")
@@ -187,16 +192,17 @@ context("GRUD -  cotacaoCompras", () => {
     cy.get(loc.menu.fechaaviso).click({ timeout: 10000 });
 
     cy.wait(500);
-    cy.contains("ATHOS").dblclick();
+    cy.contains("PAULO").dblclick();
     cy.wait(200)
-    cy.get(loc.compras.Corpo).should('contain','ATHOS')
+    cy.get(loc.compras.Corpo).should('contain','PAULO')
     cy.get(loc.compras.Corpo).should('contain','PREPARADA')
     cy.get(loc.compras.Corpo).should('contain','CAIXA FRAGIL')
     cy.get(loc.compras.Corpo).should('contain','CERVEJA SKOL')
-    cy.get(loc.compras.Corpo).should('contain','BOSCH')
+    cy.get(loc.compras.Corpo).should('contain','PARAFUSADEIRA')
     cy.wait(500);
     //salvar
-    cy.get(".md-raised > span.ng-scope").click({ force: true });
+    cy.get('[ng-click="ctrl.editarCadastro()"]').click()
+    cy.get('.col-md-24 > .pull-right > .md-raised').click({ force: true });
     cy.get(loc.menu.aviso).should("contain", "sucesso");
     cy.wait(500);
     cy.get(loc.menu.fechaaviso).click();
@@ -244,10 +250,10 @@ context("GRUD -  cotacaoCompras", () => {
 
     //editando...
     cy.wait(2500);
-    cy.contains("ATHOS").dblclick();
+    cy.contains("PAULO").dblclick();
 
     // descrição
-  cy.get(loc.compras.Corpo).should('contain','ATHOS')
+  cy.get(loc.compras.Corpo).should('contain','PAULO')
     cy.wait(500);
     cy.get('[ng-click="ctrl.excluirCadastro()"] > span.ng-scope').click({ force: true });
     //salvar

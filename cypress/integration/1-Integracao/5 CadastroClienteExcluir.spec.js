@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -67,7 +67,7 @@ it('Abrir - Editar, cancelar edição e Excluir - Cliente', () => {
     } 
     
     //editando...
-    cy.contains("TESTE EDITADO",{ matchCase: false }).dblclick()
+    cy.contains("SALOMAO ATUALIZADO",{ matchCase: false }).dblclick()
     cy.wait(2000)
     cy.get('[ng-click="ctrl.editarCadastro()"] > .fa').click()
     cy.wait(2000)
@@ -120,7 +120,18 @@ it('Abrir - Editar, cancelar edição e Excluir - Cliente', () => {
  
     cy.get(loc.integracao.adicionar).click()
     cy.get('.breadcrumb > :nth-child(4) > .ng-binding').should('contain', 'Cadastrar')
-    cy.get('#descricao').clear().type("BASICO")
+    cy.get('#razaoSocial').clear().type("BASICO")
+    cy.get('#intClienteGrupo > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('PADRAO')
+    cy.get(loc.menu.selecionaItem).click({timeout: 10000})
+    cy.wait(1000)
+    cy.get(':nth-child(4) > :nth-child(2) > .form-group > .ui-select-container > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('Consumidor')
+    cy.get(loc.menu.selecionaItem).click({timeout: 10000})
+    cy.wait(1000)
+    cy.get(':nth-child(4) > :nth-child(3) > .form-group > .ui-select-container > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('Não Contribuinte')
+    cy.get(loc.menu.selecionaItem).click({timeout: 10000})
+    cy.wait(1000)
+    cy.get('#pfCpf').type("23505986593")
+    cy.wait(1000)
     cy.get('#btn-salvar > span.ng-scope').click()
     cy.get(loc.menu.aviso).should('contain', 'sucesso')
     cy.get(loc.menu.fechaaviso).click({timeout: 10000})

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -79,11 +79,11 @@ context('ESTOQUE - Precificação de produtos em lote | Possibilidade de alterar
    
 //altera preço de custo
 cy.get('[ng-repeat="produto in ctrl.produtos | startFrom:(ctrl.currentPage-1)*ctrl.pageSize | limitTo:ctrl.pageSize"][style=""] > :nth-child(5) > .button-mini > .fa').click()
-cy.get('#precoCusto').clear().type("12345")
+cy.get('#preco').clear().type("12345")
 cy.get('.flex-20 > .layout-row > .md-raised').click()
 cy.wait(200)
 cy.get(':nth-child(2) > :nth-child(5) > .button-mini > .fa').click()
-cy.get('#precoCusto').clear().type("12345")
+cy.get('#preco').clear().type("12345")
 cy.get('.flex-20 > .layout-row > .md-raised').click()
 cy.wait(200)
 

@@ -1,17 +1,11 @@
-
- 
-  
-  {
-	   "projectId": "j35334",
-  "chromeWebSecurity": false ,
-  
-    "viewportWidth": 1366,
-    "viewportHeight": 768,
-  
-        "baseUrl": "https://erp-test.golerp.com.br/#!/login/",
-        "env":{
-          "usuario": "@teste.com",
-          "senha":"4"
-        }
-    }
-
+{
+  "projectId": "j35334",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "baseUrl": "https://erp-test.golerp.com.br/#!/login/",
+  "env": {
+    "usuario": "paulosalomao@adsoft.com.br",
+    "senha": "4071"
+  }
+}

@@ -1,4 +1,4 @@
-<reference types="Cypress" />
+///<reference types="Cypress" />
 
 var faker = require('faker-br');
 let meuCpf = faker.br.cnpj();
@@ -7,6 +7,7 @@ import loc from '../../support/locators'
 context('GRUD - Clientes', () => {
   beforeEach(() => {
     cy.visit(loc.ambiente.demo);   
+    
     
     
   })
@@ -68,7 +69,7 @@ context('GRUD - Clientes', () => {
       } 
 
  //editando...
- cy.contains("Athos Teste",{ matchCase: false }).dblclick()
+ cy.contains("SALOMAO Teste",{ matchCase: false }).dblclick()
  cy.get(loc.menu.caminho2).should('contain', 'Visualizar')
  cy.get('[ng-click="ctrl.editarCadastro()"] > span.ng-scope').click()
  cy.get('.breadcrumb > :nth-child(4) > .ng-binding').should('contain', 'Editar')
@@ -87,16 +88,16 @@ cy.get('[label="Identificação"]').should('contain','Física')
 cy.get(':nth-child(1) > .col-md-16 > .form-group > .control-label > .ng-binding').should("contain", "Nome")
 
 //razao social
-cy.get('#razaoSocial').clear().type('ATHOS ATUALIZADO')
+cy.get('#razaoSocial').clear().type('SALOMAO ATUALIZADO')
 cy.get('#fantasia').clear().type('TESTE-ERP-ATUALIZADO')
-cy.get('#site').clear().type('www.AthosTeste-Atualizado.com.br')
-cy.get('#email').clear().type('athos.udk@gmail.com')      
+cy.get('#site').clear().type('www.SALOMAOTeste-Atualizado.com.br')
+cy.get('#email').clear().type('SALOMAO.udk@gmail.com')      
 
 //telefone
 cy.get(':nth-child(3) > :nth-child(2) > .form-group > .input-group > #telefone').clear().type('73999035577')
 cy.get('#celular').clear().type('73999035577')
 
-cy.get('#intClienteGrupo > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('SERVIÇOS')
+cy.get('#intClienteGrupo > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('CLASSE A')
 cy.get('.ui-select-choices-row-inner > .text-truncate').click({timeout: 10000})
 cy.wait(1000)
 cy.get(':nth-child(4) > :nth-child(2) > .form-group > .ui-select-container > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('Revendedor')
@@ -105,7 +106,7 @@ cy.wait(1000)
 cy.get(':nth-child(4) > :nth-child(3) > .form-group > .ui-select-container > .ui-select-match > .form-control > [ng-click="$select.toggle($event)"] > .fa').type('CONTRIBUINTE ICMS')
 cy.get('.ui-select-choices-row-inner > .text-truncate').click({timeout: 10000})
 cy.wait(1000)
-cy.get('#intGrupoEmpresarial > .ui-select-match > .form-control').type('PRODUTOR RURAL')
+cy.get('#intGrupoEmpresarial > .ui-select-match > .form-control').type('CAPITAL PROPRIO')
 cy.get('.ui-select-choices-row-inner > .text-truncate').click({timeout: 10000})
 cy.wait(1000)
 cy.get('#spcDataInclusao').type('10082021')
@@ -121,8 +122,8 @@ cy.get('#spcObservacao').clear().type('ESTA CONSULTADO')
 cy.wait(500)
 cy.get('#pfNascimento').type('21071986')
 cy.get('#pfCpf').type('66964774971')
-//cy.get('[label="Pessoa física"]').click(780, 170) //masculino
-cy.get('#radio_8 > .md-container > .md-off').click({timeout: 10000})//masculino
+cy.get('[label="Pessoa física"]').click(780, 170) //masculino
+cy.get('#radio_10').click({timeout: 10000})//masculino
 cy.get('#pfPai').clear().type('MARIO-BROS')
 cy.get('#pfMae').clear().type('PRINCESA PEACH') 
 cy.get('#pfIdentidade').type('149828408')
@@ -153,7 +154,7 @@ cy.get('#fatTabelavenda > .ui-select-match > .form-control').type('10% ESPECIAL'
 cy.get('.ui-select-choices-row-inner').click()
 cy.wait(500)
 cy.get('#diasInadimplenciaCarencia').clear().type('30')
-cy.get('#fatVendedor > .ui-select-match > .form-control').type('DJALMA FRAZITO')
+cy.get('#Vendedor > .ui-select-match > .form-control').type('LETICIA')
 cy.get(' .ui-select-choices-row-inner > .text-truncate').click()
 cy.get('#creditoLimite').clear().type('100000')
 cy.wait(500)
@@ -178,7 +179,7 @@ cy.get('#cobrancaLogradouroNumero').type('208')
 cy.wait(500)
 cy.get('[fields="ctrl.dicionarios[2]"] > :nth-child(1) > :nth-child(1) > .panel > .panel-heading').click({timeout: 10000})
 cy.get('[ng-show="ctrl.modelo.enderecos.length"] > tbody > :nth-child(1) > [width="80"] > .btn-group > .md-menu > .md-icon-button > .fa').click()
-cy.get('#menu_container_4 > .md-menu-small > :nth-child(1) > .md-button > span.ng-scope').click()
+cy.get('#menu_container_6 > .md-menu-small > :nth-child(1) > .md-button > span.ng-scope').click()
 cy.wait(1000)
 cy.get('#referencia').click({timeout: 10000})
 cy.get('#referencia').clear().type('TRAVESSA')
@@ -220,7 +221,7 @@ cy.get('[datasource="ctrl.referencia"] > .panel > .panel-body').should("contain"
 
 //EDITA O PRIMEIRO
 cy.get('[ng-show="ctrl.modelo.referencias.length"] > tbody > :nth-child(1) > [width="80"] > .btn-group > .md-menu > .md-icon-button > .fa').click()
-cy.get('#menu_container_5 > .md-menu-small > :nth-child(1) > .md-button').click()
+cy.get('#menu_container_7 > .md-menu-small > :nth-child(1) > .md-button').click()
 
 cy.get('#empresa').type('KINGHOST')
 cy.get(':nth-child(1) > :nth-child(2) > .form-group > .input-group > #telefone').type('77999774888')
@@ -231,15 +232,16 @@ cy.get('#atrasoMedia').type('15')
 cy.get(':nth-child(2) > :nth-child(3) > .form-group > .ui-select-container > .ui-select-match > .form-control').type('B')
 cy.get('.ui-select-choices-row-inner').click()
 cy.wait(500)
-
+ 
 cy.get('.margin-top-15 > .ng-scope > .btn-primary').click()
 cy.get('[datasource="ctrl.referencia"] > .panel > .panel-body').should("contain", "KINGHOST")
 cy.wait(500)
 
 //REMOVE O SEGUNDO
-cy.get('[ng-show="ctrl.modelo.referencias.length"] > tbody > :nth-child(1) > [width="80"] > .btn-group > .md-menu > .md-icon-button > .fa').click()
-cy.get('#menu_container_12 > .md-menu-small > :nth-child(2) > .md-button > span.ng-scope').click()
-cy.get('.swal2-confirm').click({timeout: 10000})
+//cy.get('[ng-show="ctrl.modelo.referencias.length"] > tbody > :nth-child(1) > [width="80"] > .btn-group > .md-menu > .md-icon-button > .fa').click()
+//cy.get(':nth-child(2) > [width="80"] > .btn-group > .md-menu > .md-icon-button').click()
+//cy.get('#menu_container_12 > .md-menu-small > :nth-child(2) > .md-button').click()
+//cy.get('.swal2-confirm').click({timeout: 10000})
 //salvar
 cy.get('#btn-salvar').click({timeout: 10000})
 cy.get('.toast').should("contain", "atualizado")
@@ -281,26 +283,26 @@ it('Abrir Editado - Visualizar Edição e Ler alteração Cliente', () => {
     } 
 
 //editando...
-cy.contains("ATHOS ATUALIZADO",{ matchCase: false }).dblclick()
+cy.contains("SALOMAO ATUALIZADO",{ matchCase: false }).dblclick()
 cy.get(loc.menu.caminho2).should('contain', 'Visualizar')
 cy.wait(1000)
 
-cy.get(loc.integracao.Corpo).should('contain','ATHOS ATUALIZADO',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','SALOMAO ATUALIZADO',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','669.647.749-71',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','Ativo',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','149828408',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','20/jul/1987',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','PADRAO',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','21/jul/1986',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','CLASSE A',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','Física',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','WWW.ATHOSTESTE.COM.BR',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','ATHOS@ADSOFT.COM',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','(73) 99903-5376',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','(73) 99903-5376',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','WWW.SALOMAOTESTE-ATUALIZADO.COM.BR',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','SALOMAO.UDK@GMAIL.COM',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','(73) 99903-5577',{ matchCase: false })
+//cy.get(loc.integracao.Corpo).should('contain','(73) 99903-5577',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','M - MASCULINO',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','R - REVENDEDOR',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','1 - CONTRIBUINTE ICMS',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','NÃO',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','PRODUTOR RURAL',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','CAPITAL PROPRIO',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','08/09/2021',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','DE PREFERENCIA DINHEIRO',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','ESTA CONSULTADO',{ matchCase: false })
@@ -312,7 +314,7 @@ cy.get(loc.integracao.Corpo).should('contain','R$8.000,00',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','8',{ matchCase: false })
 //faturamento
 cy.get(loc.integracao.Corpo).should('contain','10% ESPECIAL',{ matchCase: false })
-cy.get(loc.integracao.Corpo).should('contain','DJALMA FRAZITO',{ matchCase: false })
+cy.get(loc.integracao.Corpo).should('contain','LETICIA',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','R$1.000,00',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','NÃO',{ matchCase: false })
 cy.get(loc.integracao.Corpo).should('contain','30',{ matchCase: false })
